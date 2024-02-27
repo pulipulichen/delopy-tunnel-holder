@@ -14,8 +14,11 @@ chmod +x *.sh
 
 timedatectl set-timezone Asia/Taipei
 
-echo "@reboot /root/startup.sh" | sudo crontab -u root -
-echo "0 3 * * * /root/random_sleep_startup.sh" | sudo crontab -u root -
+# Add the @reboot command
+echo "@reboot root /root/startup.sh" >> /etc/crontab
+
+# Add the scheduled command
+echo "0 3 * * * root /root/random_sleep_startup.sh" >> /etc/crontab
 
 rm -rf install.sh
 
