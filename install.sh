@@ -12,5 +12,11 @@ wget https://pulipulichen.github.io/delopy-tunnel/assets/random_sleep_startup.sh
 
 chmod +x *.sh
 
+timedatectl set-timezone Asia/Taipei
+
 echo "@reboot /root/startup.sh" | sudo crontab -u root -
 echo "0 3 * * * /root/random_sleep_startup.sh" | sudo crontab -u root -
+
+rm -rf install.sh
+
+reboot
