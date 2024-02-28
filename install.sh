@@ -6,6 +6,9 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
+rm *.sh
+rm *.txt
+
 cd "$(dirname "$0")"
 
 # Access the provided parameter
@@ -28,7 +31,7 @@ fi
 
 # =================================================================
 
-rm *.sh
+
 
 wget https://pulipulichen.github.io/delopy-tunnel/assets/startup.sh
 wget https://pulipulichen.github.io/delopy-tunnel/assets/random_sleep_startup.sh
