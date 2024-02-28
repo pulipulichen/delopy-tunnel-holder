@@ -8,7 +8,7 @@ url_data=$(cat url.txt | grep -o 'r=[^&]*' | awk -F'r=' '{print $2}')
 
 export C=$url_data
 export URL=`cat target.txt`
-export API="https://script.google.com/macros/s/AKfycbyFBqlROxkWEpsBdP-oYNU1FVzezoFRxksMPNuThDuU2HV6D0SJwBfc27Me-am83V02/exec";
+export API=`cat api.txt`
 
 pkill cloudflared
 
@@ -37,4 +37,6 @@ done
 # curl -X POST "$API" -d "url=$url&p=$C"
 curl -sL "$API?u=$url&p=$C"
 
+echo "================================================================"
 cat url.txt
+echo "================================================================"

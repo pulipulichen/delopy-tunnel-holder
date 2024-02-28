@@ -31,11 +31,10 @@ fi
 
 # =================================================================
 
-
-
 wget https://pulipulichen.github.io/delopy-tunnel-holder/assets/startup.sh
 wget https://pulipulichen.github.io/delopy-tunnel-holder/assets/random_sleep_startup.sh
 wget https://pulipulichen.github.io/delopy-tunnel-holder/assets/setup_url.sh
+wget https://pulipulichen.github.io/delopy-tunnel-holder/assets/api.txt
 
 chmod +x *.sh
 
