@@ -66,5 +66,4 @@ if [ "$current_timezone" != "Asia/Taipei" ]; then
   reboot
 else
   ./startup.sh
-  cat url.txt
 fi

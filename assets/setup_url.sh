@@ -10,7 +10,7 @@ if [ ! -f "url.txt" ]; then
   # Check if the result is not empty
   if [ -n "$result" ]; then
       # Do something with the result, such as printing it
-      echo "${url}?c=${result}" > url.txt
+      echo "${url}?r=${result}" > url.txt
   else
       echo "Error: No result obtained from the curl command."
   fi
