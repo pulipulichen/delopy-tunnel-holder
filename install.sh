@@ -33,9 +33,9 @@ fi
 
 
 
-wget https://pulipulichen.github.io/delopy-tunnel/assets/startup.sh
-wget https://pulipulichen.github.io/delopy-tunnel/assets/random_sleep_startup.sh
-wget https://pulipulichen.github.io/delopy-tunnel/assets/setup_c.sh
+wget https://pulipulichen.github.io/delopy-tunnel-holder/assets/startup.sh
+wget https://pulipulichen.github.io/delopy-tunnel-holder/assets/random_sleep_startup.sh
+wget https://pulipulichen.github.io/delopy-tunnel-holder/assets/setup_url.sh
 
 chmod +x *.sh
 
