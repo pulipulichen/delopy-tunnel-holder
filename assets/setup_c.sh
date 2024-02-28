@@ -5,7 +5,7 @@ if [ ! -f "url.txt" ]; then
   url="https://script.google.com/macros/s/AKfycbwkzpXsS04JJCbnh3EEtEcIKT1qczBnmvEQTfIFvRjFnoNoAJKGZ_zru308HKBRqr72/exec"
 
   # Fetch data from the URL using curl
-  result=$(curl -s "$url")
+  result=$(curl -sL "$url")
 
   # Check if the result is not empty
   if [ -n "$result" ]; then

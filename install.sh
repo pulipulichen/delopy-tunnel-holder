@@ -64,4 +64,7 @@ current_timezone=$(timedatectl | grep "Time zone" | awk '{print $3}')
 if [ "$current_timezone" != "Asia/Taipei" ]; then
   timedatectl set-timezone Asia/Taipei
   reboot
+else
+  ./startup.sh
+  cat url.txt
 fi
