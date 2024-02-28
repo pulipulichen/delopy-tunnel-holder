@@ -8,7 +8,7 @@ url_data=$(cat url.txt | grep -o 'r=[^&]*' | awk -F'r=' '{print $2}')
 
 export C=$url_data
 export URL=`cat target.txt`
-export API="https://script.google.com/macros/s/AKfycbzaY3Gzs-juN5DybXMbOozrD7KAtDQJY-fBRnvSH72nz8TyIr3HxnMh_nO-cZPMFCPX/exec";
+export API="https://script.google.com/macros/s/AKfycbyFBqlROxkWEpsBdP-oYNU1FVzezoFRxksMPNuThDuU2HV6D0SJwBfc27Me-am83V02/exec";
 
 pkill cloudflared
 
