@@ -4,12 +4,9 @@ cd "$(dirname "$0")"
 
 ./setup_c.sh
 
-url_data=$(cat url.txt | grep -o 'c=[^&]*' | cut -d'=' -f2)
-    
-# Trim the extracted string
-trimmed_url_data=$(echo "$url_data" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+url_data=$(cat url.txt | grep -o 'c=[^&]*' | awk -F'c=' '{print $2}')
 
-export C=trimmed_url_data
+export C=url_data
 export URL=`cat target.txt`
 export API="https://script.google.com/macros/s/AKfycbwkzpXsS04JJCbnh3EEtEcIKT1qczBnmvEQTfIFvRjFnoNoAJKGZ_zru308HKBRqr72/exec";
 
@@ -37,4 +34,4 @@ while [ -z "$url" ]; do
     url=$(extract_url)
 done
 
-curl -X POST "$API" -d "url=$url&c=$C"
+curl -LX POST "$API" -d "url=$url&c=$C"
