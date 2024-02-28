@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+  }
+  
+  iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Window Iframe</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+  }
+  
+  iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+  <iframe src="https://example.com" frameborder="0"></iframe>
+</body>
+</html>
+
+  <script>
+
+var currentURL = window.location.href;
+
+// Create a URLSearchParams object
+var params = new URLSearchParams(new URL(currentURL).search);
+
+// Get the value of the "cell" parameter
+var cellValue = params.get("r");
+// cellValue = 'A1'
+
+// Print the value
+if (cellValue) {
+  let apiURL = 'https://script.google.com/macros/s/AKfycbz1z9bPjL0gqjuRXFD4ylCt8xidfQnL8KcgGKCOGddt6LP2RrSbplfcUxn9xfI9TkzU/exec'
+  fetch(`${apiURL}?r=${cellValue}`)
+    .then(response => response.text())
+    .then(data => {
+      // console.log(data); // Process the raw text data
+      if (data.startsWith('http')) {
+        location.href = data
+      }
+      else {
+        console.error(data)
+      }  
+    })
+    .catch(error => {
+      console.log('Error:', error);
+    });
+}
+  </script>
+</body>
+</html>
