@@ -10,7 +10,7 @@ if [ ! -f "url.txt" ]; then
   # Check if the result is not empty
   if [ -n "$result" ]; then
       # Do something with the result, such as printing it
-      echo "https://rb.gy/9yg50c?r=${result}" > url.txt
+      echo "http://tinyurl.com/4e8tbske?r=${result}" > url.txt
   else
       echo "Error: No result obtained from the curl command."
   fi
