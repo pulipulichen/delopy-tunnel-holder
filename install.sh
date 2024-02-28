@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# Check if a parameter is provided
+if [ $# -eq 0 ]; then
+    echo "No parameter provided. Exiting."
+    exit 1
+fi
+
+cd "$(dirname "$0")"
+
+# Access the provided parameter
+echo $1 > target.txt
+
+# ==========
+
 if ! command -v curl &> /dev/null; then
   apt-get update
   apt-get install -y curl wget
@@ -19,6 +32,7 @@ rm *.sh
 
 wget https://pulipulichen.github.io/delopy-tunnel/assets/startup.sh
 wget https://pulipulichen.github.io/delopy-tunnel/assets/random_sleep_startup.sh
+wget https://pulipulichen.github.io/delopy-tunnel/assets/setup_c.sh
 
 chmod +x *.sh
 
@@ -37,8 +51,8 @@ check_and_append_crontab() {
     fi
 }
 
-check_and_append_crontab "@reboot root /root/startup.sh"
-check_and_append_crontab "0 3 * * * root /root/random_sleep_startup.sh"
+check_and_append_crontab "@reboot root $(dirname "$0")/startup.sh"
+check_and_append_crontab "0 3 * * * root $(dirname "$0")/random_sleep_startup.sh"
 
 # =================================================================
 

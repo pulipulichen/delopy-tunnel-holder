@@ -1,8 +1,17 @@
 #!/bin/bash
 
-export API_CELL=A9
-export URL=https://192.168.0.42:8006/
-export API="https://script.google.com/macros/s/AKfycbyemCrwxJ8FqhJzcTwf6OWCqBofEvXHeHB3X9sC7liAtnxrS1H2P2ktOIkaFp0CipKXMQ/exec";
+cd "$(dirname "$0")"
+
+./setup_c.sh
+
+url_data=$(cat url.txt | grep -o 'c=[^&]*' | cut -d'=' -f2)
+    
+# Trim the extracted string
+trimmed_url_data=$(echo "$url_data" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+export C=trimmed_url_data
+export URL=`cat target.txt`
+export API="https://script.google.com/macros/s/AKfycbxW2kPaa9hjfQL7r9zXHAqI9JRfZCB2U4vE2Xqcl_e27k8ZnOjAUojcjHTr45CwqObv/exec";
 
 pkill cloudflared
 
@@ -28,4 +37,4 @@ while [ -z "$url" ]; do
     url=$(extract_url)
 done
 
-curl -X POST "$API" -d "url=$url&cell=$API_CELL"
+curl -X POST "$API" -d "url=$url&c=$C"
