@@ -6,9 +6,9 @@ cd "$(dirname "$0")"
 
 url_data=$(cat url.txt | grep -o 'c=[^&]*' | awk -F'c=' '{print $2}')
 
-export C=url_data
+export C=$url_data
 export URL=`cat target.txt`
-export API="https://script.google.com/macros/s/AKfycbwkzpXsS04JJCbnh3EEtEcIKT1qczBnmvEQTfIFvRjFnoNoAJKGZ_zru308HKBRqr72/exec";
+export API="https://script.google.com/macros/s/AKfycbzaY3Gzs-juN5DybXMbOozrD7KAtDQJY-fBRnvSH72nz8TyIr3HxnMh_nO-cZPMFCPX/exec";
 
 pkill cloudflared
 
@@ -34,4 +34,5 @@ while [ -z "$url" ]; do
     url=$(extract_url)
 done
 
-curl -LX POST "$API" -d "url=$url&c=$C"
+# curl -X POST "$API" -d "url=$url&p=$C"
+curl -sL "$API?u=$url&p=$C"

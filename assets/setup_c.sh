@@ -2,7 +2,7 @@
 
 if [ ! -f "url.txt" ]; then
   # Define the URL
-  url="https://script.google.com/macros/s/AKfycbwkzpXsS04JJCbnh3EEtEcIKT1qczBnmvEQTfIFvRjFnoNoAJKGZ_zru308HKBRqr72/exec"
+  url="https://script.google.com/macros/s/AKfycbzaY3Gzs-juN5DybXMbOozrD7KAtDQJY-fBRnvSH72nz8TyIr3HxnMh_nO-cZPMFCPX/exec"
 
   # Fetch data from the URL using curl
   result=$(curl -sL "$url")
