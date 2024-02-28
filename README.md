@@ -2,4 +2,4 @@
 delopy-tunnel
 
 
-wget https://pulipulichen.github.io/delopy-tunnel/install.sh; bash install.sh [TARGET_URL]
+wget https://pulipulichen.github.io/delopy-tunnel-holder/install.sh; bash install.sh [TARGET_URL]
