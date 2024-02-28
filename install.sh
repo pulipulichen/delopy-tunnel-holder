@@ -41,8 +41,6 @@ chmod +x *.sh
 
 # =================================================================
 
-timedatectl set-timezone Asia/Taipei
-
 # Function to check and append command to /etc/crontab if not present
 check_and_append_crontab() {
     local command_to_check="$1"
@@ -59,4 +57,11 @@ check_and_append_crontab "0 3 * * * root $(dirname "$0")/random_sleep_startup.sh
 
 # =================================================================
 
-reboot
+# Get the current timezone
+current_timezone=$(timedatectl | grep "Time zone" | awk '{print $3}')
+
+# Check if the current timezone is not Asia/Taipei
+if [ "$current_timezone" != "Asia/Taipei" ]; then
+  timedatectl set-timezone Asia/Taipei
+  reboot
+fi
